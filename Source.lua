@@ -632,10 +632,11 @@ end
 
 Execute.MouseButton1Click:Connect(function()
 	if Injected == true then
+		loadstring(Source.Text)()
+		
 		if Source.Text == "_G.IY()" then
 			loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
 		end
-		loadstring(Source.Text)()
 	end
 end)
 
