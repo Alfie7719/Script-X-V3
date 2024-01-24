@@ -36,6 +36,7 @@ local Keywords_ = Instance.new("TextLabel")
 local RemoteHighlight_ = Instance.new("TextLabel")
 local Strings_ = Instance.new("TextLabel")
 local Tokens_ = Instance.new("TextLabel")
+local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
 local Numbers_ = Instance.new("TextLabel")
 local NotAttachedStatus = Instance.new("Frame")
 local Status = Instance.new("TextLabel")
@@ -45,6 +46,7 @@ local UICorner_7 = Instance.new("UICorner")
 local ScriptScrollFrame = Instance.new("ScrollingFrame")
 local InfYeld = Instance.new("TextButton")
 local Dex = Instance.new("TextButton")
+local OwlHub = Instance.new("TextButton")
 local UnamedAdmin = Instance.new("TextButton")
 local KatGui = Instance.new("TextButton")
 local SpinScript = Instance.new("TextButton")
@@ -352,6 +354,9 @@ Keywords_.TextSize = 15.000
 Keywords_.TextXAlignment = Enum.TextXAlignment.Left
 Keywords_.TextYAlignment = Enum.TextYAlignment.Top
 
+UIAspectRatioConstraint.Parent = main
+UIAspectRatioConstraint.AspectRatio = 1.823
+
 RemoteHighlight_.Name = "RemoteHighlight_"
 RemoteHighlight_.Parent = Source
 RemoteHighlight_.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -525,6 +530,19 @@ SpinScript.Text = "Spin Script"
 SpinScript.TextColor3 = Color3.fromRGB(255, 255, 255)
 SpinScript.TextSize = 14.000
 
+OwlHub.Name = "OwlHub"
+OwlHub.Parent = game.StarterGui["ScriptX (V3)"].main.ScriptScrollFrame
+OwlHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+OwlHub.BackgroundTransparency = 1.000
+OwlHub.BorderColor3 = Color3.fromRGB(0, 0, 0)
+OwlHub.BorderSizePixel = 0
+OwlHub.Position = UDim2.new(0, 0, 0.192156866, 0)
+OwlHub.Size = UDim2.new(0, 91, 0, 18)
+OwlHub.Font = Enum.Font.SourceSans
+OwlHub.Text = "Owl Hub"
+OwlHub.TextColor3 = Color3.fromRGB(255, 255, 255)
+OwlHub.TextSize = 14.000
+
 LifeGui.Name = "LifeGui"
 LifeGui.Parent = ScriptScrollFrame
 LifeGui.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -655,6 +673,10 @@ MeepcityAutoFarm.MouseButton1Click:Connect(function()
 			game:GetService("ReplicatedStorage").Connection:InvokeServer(ohNumber1, ohTable2)
 		end)
 	]]
+end)
+
+OwlHub.MouseButton1Click:Connect(function()
+	Source.Text = 'loadstring(game:HttpGet("https://pastebin.com/raw/GtudyLtE"))();'
 end)
 
 SpinScript.MouseButton1Click:Connect(function()
