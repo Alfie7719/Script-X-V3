@@ -24,6 +24,7 @@ local UICorner_4 = Instance.new("UICorner")
 local close = Instance.new("ImageButton")
 local UICorner_5 = Instance.new("UICorner")
 local _1 = Instance.new("TextLabel")
+local InfYeldString = Instance.new("StringValue")
 local _2 = Instance.new("TextLabel")
 local _3 = Instance.new("TextLabel")
 local ScrollingFrame = Instance.new("ScrollingFrame")
@@ -98,6 +99,8 @@ power.ZIndex = 2
 power.Image = "rbxassetid://6764432408"
 power.ImageRectOffset = Vector2.new(100, 400)
 power.ImageRectSize = Vector2.new(50, 50)
+
+InfYeldString.Value = 'https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'
 
 Logo2.Name = "Logo2"
 Logo2.Parent = bar
@@ -623,7 +626,7 @@ local UserInputService = game:GetService("UserInputService")
 Execute.MouseButton1Click:Connect(function()
 	if Injected == true then
 		if Source.Text == "_G.IY()" then
-			loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+                loadstring(InfYeldString.Value)()
 			else
 			loadstring(Source.Text)()	
 		end	
