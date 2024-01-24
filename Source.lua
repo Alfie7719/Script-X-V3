@@ -531,7 +531,7 @@ SpinScript.TextColor3 = Color3.fromRGB(255, 255, 255)
 SpinScript.TextSize = 14.000
 
 OwlHub.Name = "OwlHub"
-OwlHub.Parent = game.StarterGui["ScriptX (V3)"].main.ScriptScrollFrame
+OwlHub.Parent = ScriptScrollFrame
 OwlHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 OwlHub.BackgroundTransparency = 1.000
 OwlHub.BorderColor3 = Color3.fromRGB(0, 0, 0)
