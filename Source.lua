@@ -622,11 +622,11 @@ local UserInputService = game:GetService("UserInputService")
 
 Execute.MouseButton1Click:Connect(function()
 	if Injected == true then
-		loadstring(Source.Text)()
-		
 		if Source.Text == "_G.IY()" then
 			loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
-		end
+			else
+			loadstring(Source.Text)()	
+		end	
 	end
 end)
 
