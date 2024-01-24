@@ -619,16 +619,6 @@ end)
 
 local UserInputService = game:GetService("UserInputService")
 
-local function callback(text)
-
-	if text == "Yes!" then
-		Status.Text = "Injecting."
-		wait(0.5)
-		Status.Text = "Injected"
-		Injected = true
-		NotAttachedStatus.BackgroundColor3 = Color3.new(0.101961, 1, 0.176471)
-	end
-end
 
 Execute.MouseButton1Click:Connect(function()
 	if Injected == true then
