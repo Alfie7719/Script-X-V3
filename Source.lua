@@ -1,4 +1,5 @@
 -- Gui to Lua
+wait(1)
 -- Version: 3.2
 local CoreGui = game:GetService("CoreGui")
 -- Instances:
@@ -869,6 +870,9 @@ CloseSettings.MouseButton1Click:Connect(function()
 end)
 
 Discord.MouseButton1Click:Connect(function()
+Discord.Text = 'copied Discord Link To Clipboard!'
 	setclipboard("https://discord.gg/pqxSpMsC")
 	toclipboard("https://discord.gg/pqxSpMsC")
+	wait(1.2)
+	Discord.Text = 'Discord'
 end)
