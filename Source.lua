@@ -6,7 +6,6 @@ local CoreGui = game:GetService("CoreGui")
 local ScriptXV3 = Instance.new("ScreenGui")
 local main = Instance.new("Frame")
 local bar = Instance.new("Frame")
-local Inject = Instance.new("ImageButton")
 local power = Instance.new("ImageButton")
 local Logo2 = Instance.new("TextLabel")
 local Logo1 = Instance.new("TextLabel")
@@ -27,6 +26,7 @@ local _1 = Instance.new("TextLabel")
 local InfYeldString = Instance.new("StringValue")
 local _2 = Instance.new("TextLabel")
 local _3 = Instance.new("TextLabel")
+local UICorner = Instance.new("UICorner")
 local ScrollingFrame = Instance.new("ScrollingFrame")
 local EditorFrame = Instance.new("ScrollingFrame")
 local Source = Instance.new("TextBox")
@@ -37,6 +37,11 @@ local RemoteHighlight_ = Instance.new("TextLabel")
 local Strings_ = Instance.new("TextLabel")
 local Tokens_ = Instance.new("TextLabel")
 local UIAspectRatioConstraint = Instance.new("UIAspectRatioConstraint")
+local UICorner = Instance.new("UICorner")
+local UICorner_2 = Instance.new("UICorner")
+local UICorner_3 = Instance.new("UICorner")
+local UICorner_4 = Instance.new("UICorner")
+local UICorner_5 = Instance.new("UICorner")
 local Numbers_ = Instance.new("TextLabel")
 local NotAttachedStatus = Instance.new("Frame")
 local Status = Instance.new("TextLabel")
@@ -53,12 +58,15 @@ local SpinScript = Instance.new("TextButton")
 local LifeGui = Instance.new("TextButton")
 local MeepcityAutoFarm = Instance.new("TextButton")
 local DahoodGui = Instance.new("TextButton")
-local Inject_2 = Instance.new("ImageButton")
+local Inject = Instance.new("ImageButton")
+local Settings = Instance.new("TextButton")
+local UICorner = Instance.new("UICorner")
+local TextBtn = Instance.new("ImageButton")
 
 --Properties:
 
 ScriptXV3.Name = "ScriptX (V3)"
-ScriptXV3.Parent = CoreGui
+ScriptXV3.Parent = game.Players.LocalPlayer.PlayerGui
 ScriptXV3.ResetOnSpawn = false
 ScriptXV3.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -81,6 +89,31 @@ bar.BorderColor3 = Color3.fromRGB(0, 0, 0)
 bar.BorderSizePixel = 0
 bar.Position = UDim2.new(-0.000179991432, 0, -0.000884346315, 0)
 bar.Size = UDim2.new(0, 588, 0, 39)
+
+Settings.Name = "Settings"
+Settings.Parent = main
+Settings.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Settings.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Settings.BorderSizePixel = 0
+Settings.Position = UDim2.new(0.588937223, 0, 0.854037285, 0)
+Settings.Size = UDim2.new(0, 129, 0, 32)
+Settings.Font = Enum.Font.SciFi
+Settings.Text = "Settings"
+Settings.TextColor3 = Color3.fromRGB(255, 255, 255)
+Settings.TextSize = 20.000
+Settings.TextWrapped = true
+
+UICorner.Parent = Settings
+
+TextBtn.Name = "TextBtn"
+TextBtn.Parent = Settings
+TextBtn.BackgroundTransparency = 1.000
+TextBtn.Position = UDim2.new(0, 0, 0.0928344727, 0)
+TextBtn.Size = UDim2.new(0, 25, 0, 29)
+TextBtn.ZIndex = 2
+TextBtn.Image = "rbxassetid://3926307971"
+TextBtn.ImageRectOffset = Vector2.new(324, 124)
+TextBtn.ImageRectSize = Vector2.new(36, 36)
 
 Inject.Name = "Inject"
 Inject.Parent = bar
@@ -432,30 +465,7 @@ Status.TextSize = 14.000
 
 UICorner_6.Parent = NotAttachedStatus
 
-inject2.Name = "inject2"
-inject2.Parent = main
-inject2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-inject2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-inject2.BorderSizePixel = 0
-inject2.Position = UDim2.new(0.580936432, 0, 0.860153496, 0)
-inject2.Size = UDim2.new(0, 142, 0, 32)
-inject2.Font = Enum.Font.SciFi
-inject2.Text = "Inject"
-inject2.TextColor3 = Color3.fromRGB(255, 255, 255)
-inject2.TextSize = 20.000
-inject2.TextWrapped = true
-
 UICorner_7.Parent = inject2
-
-Inject_2.Name = "Inject"
-Inject_2.Parent = inject2
-Inject_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Inject_2.BackgroundTransparency = 1.000
-Inject_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Inject_2.BorderSizePixel = 0
-Inject_2.Position = UDim2.new(0.0856086835, 0, 0.102563858, 0)
-Inject_2.Size = UDim2.new(0, 29, 0, 24)
-Inject_2.Image = "http://www.roblox.com/asset/?id=13353741942"
 
 ScriptScrollFrame.Name = "ScriptScrollFrame"
 ScriptScrollFrame.Parent = main
@@ -712,167 +722,153 @@ end)
 InfYeld.MouseButton1Click:Connect(function()
 	Source.Text = "loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()"
 end)
+-- options
 
-local lua_keywords = {"and", "break", "do", "else", "elseif", "end", "false", "for", "function", "goto", "if", "in", "local", "nil", "not", "or", "repeat", "return", "then", "true", "until", "while"}
-local global_env = {"getrawmetatable", "game", "workspace", "script", "math", "string", "table", "print", "wait", "BrickColor", "Color3", "next", "pairs", "ipairs", "select", "unpack", "Instance", "Vector2", "Vector3", "CFrame", "Ray", "UDim2", "Enum", "assert", "error", "warn", "tick", "loadstring", "_G", "shared", "getfenv", "setfenv", "newproxy", "setmetatable", "getmetatable", "os", "debug", "pcall", "ypcall", "xpcall", "rawequal", "rawset", "rawget", "tonumber", "tostring", "type", "typeof", "_VERSION", "coroutine", "delay", "require", "spawn", "LoadLibrary", "settings", "stats", "time", "UserSettings", "version", "Axes", "ColorSequence", "Faces", "ColorSequenceKeypoint", "NumberRange", "NumberSequence", "NumberSequenceKeypoint", "gcinfo", "elapsedTime", "collectgarbage", "PhysicalProperties", "Rect", "Region3", "Region3int16", "UDim", "Vector2int16", "Vector3int16"}
-local Source = Source
-local Lines = Source.Parent.Lines
-local Highlight = function(string, keywords)
-	local K = {}
-	local S = string
-	local Token =
-		{
-			["="] = true,
-			["."] = true,
-			[","] = true,
-			["("] = true,
-			[")"] = true,
-			["["] = true,
-			["]"] = true,
-			["{"] = true,
-			["}"] = true,
-			[":"] = true,
-			["*"] = true,
-			["/"] = true,
-			["+"] = true,
-			["-"] = true,
-			["%"] = true,
-			[";"] = true,
-			["~"] = true
-		}
-	for i, v in pairs(keywords) do
-		K[v] = true
-	end
-	S = S:gsub(".", function(c)
-		if Token[c] ~= nil then
-			return "\32"
-		else
-			return c
-		end
-	end)
-	S = S:gsub("%S+", function(c)
-		if K[c] ~= nil then
-			return c
-		else
-			return (" "):rep(#c)
-		end
-	end)
-	return S
-end
-local hTokens = function(string)
-	local Token =
-		{
-			["="] = true,
-			["."] = true,
-			[","] = true,
-			["("] = true,
-			[")"] = true,
-			["["] = true,
-			["]"] = true,
-			["{"] = true,
-			["}"] = true,
-			[":"] = true,
-			["*"] = true,
-			["/"] = true,
-			["+"] = true,
-			["-"] = true,
-			["%"] = true,
-			[";"] = true,
-			["~"] = true
-		}
-	local A = ""
-	string:gsub(".", function(c)
-		if Token[c] ~= nil then
-			A = A .. c
-		elseif c == "\n" then
-			A = A .. "\n"
-		elseif c == "\t" then
-			A = A .. "\t"
-		else
-			A = A .. "\32"
-		end
-	end)
-	return A
-end
+local Options = Instance.new("Frame")
+local bar5 = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local UICorner_2 = Instance.new("UICorner")
+local Discord = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local Rejoin = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local CloseSettings = Instance.new("TextButton")
+local UICorner_5 = Instance.new("UICorner")
+local Logo11 = Instance.new("TextLabel")
+local Logo9 = Instance.new("TextLabel")
+local Logo10 = Instance.new("TextLabel")
 
-local strings = function(string)
-	local highlight = ""
-	local quote = false
-	string:gsub(".", function(c)
-		if quote == false and c == "\"" then
-			quote = true
-		elseif quote == true and c == "\"" then
-			quote = false
-		end
-		if quote == false and c == "\"" then
-			highlight = highlight .. "\""
-		elseif c == "\n" then
-			highlight = highlight .. "\n"
-		elseif c == "\t" then
-			highlight = highlight .. "\t"
-		elseif quote == true then
-			highlight = highlight .. c
-		elseif quote == false then
-			highlight = highlight .. "\32"
-		end
-	end)
-	return highlight
-end
-local comments = function(string)
-	local ret = ""
-	string:gsub("[^\r\n]+", function(c)
-		local comm = false
-		local i = 0
-		c:gsub(".", function(n)
-			i = i + 1
-			if c:sub(i, i + 1) == "--" then
-				comm = true
-			end
-			if comm == true then
-				ret = ret .. n
-			else
-				ret = ret .. "\32"
-			end
-		end)
-		ret = ret
-	end)
-	return ret
-end
-local numbers = function(string)
-	local A = ""
-	string:gsub(".", function(c)
-		if tonumber(c) ~= nil then
-			A = A .. c
-		elseif c == "\n" then
-			A = A .. "\n"
-		elseif c == "\t" then
-			A = A .. "\t"
-		else
-			A = A .. "\32"
-		end
-	end)
-	return A
-end
-local highlight_source = function(type)
-	if type == "Text" then
-		Source.Text = Source.Text:gsub("\13", "")
-		Source.Text = Source.Text:gsub("\t", "      ")
-		local s = Source.Text
-		Source.Keywords_.Text = Highlight(s, lua_keywords)
-		Source.Globals_.Text = Highlight(s, global_env)
-		Source.RemoteHighlight_.Text = Highlight(s, {"FireServer", "fireServer", "InvokeServer", "invokeServer"})
-		Source.Tokens_.Text = hTokens(s)
-		Source.Numbers_.Text = numbers(s)
-		Source.Strings_.Text = strings(s)
-		local lin = 1
-		s:gsub("\n", function()
-			lin = lin + 1
-		end)
-		Lines.Text = ""
-		for i = 1, lin do
-			Lines.Text = Lines.Text .. i .. "\n"
-		end
-	end
-end
-highlight_source("Text")
-Source.Changed:Connect(highlight_source)
+--Properties:
+
+Options.Name = "Options"
+Options.Parent = ScriptXV3
+Options.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Options.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Options.BorderSizePixel = 0
+Options.Position = UDim2.new(0.119099893, 0, 0.289448202, 0)
+Options.Size = UDim2.new(0, 238, 0, 317)
+Options.Visible = false
+
+bar5.Name = "bar5"
+bar5.Parent = Options
+bar5.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+bar5.BorderColor3 = Color3.fromRGB(0, 0, 0)
+bar5.BorderSizePixel = 0
+bar5.Position = UDim2.new(-0.000180028059, 0, -0.000884335896, 0)
+bar5.Size = UDim2.new(0, 238, 0, 39)
+
+UICorner.Parent = bar5
+
+UICorner_2.Parent = Options
+
+Discord.Name = "Discord"
+Discord.Parent = Options
+Discord.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Discord.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Discord.BorderSizePixel = 0
+Discord.Position = UDim2.new(0.072829172, 0, 0.737318158, 0)
+Discord.Size = UDim2.new(0, 203, 0, 32)
+Discord.Font = Enum.Font.SciFi
+Discord.Text = "Discord"
+Discord.TextColor3 = Color3.fromRGB(255, 255, 255)
+Discord.TextSize = 20.000
+Discord.TextWrapped = true
+
+UICorner_3.Parent = Discord
+
+Rejoin.Name = "Rejoin"
+Rejoin.Parent = Options
+Rejoin.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Rejoin.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Rejoin.BorderSizePixel = 0
+Rejoin.Position = UDim2.new(0.072829172, 0, 0.617444336, 0)
+Rejoin.Size = UDim2.new(0, 203, 0, 32)
+Rejoin.Font = Enum.Font.SciFi
+Rejoin.Text = "Rejoin"
+Rejoin.TextColor3 = Color3.fromRGB(255, 255, 255)
+Rejoin.TextSize = 20.000
+Rejoin.TextWrapped = true
+
+UICorner_4.Parent = Rejoin
+
+CloseSettings.Name = "CloseSettings"
+CloseSettings.Parent = Options
+CloseSettings.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+CloseSettings.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CloseSettings.BorderSizePixel = 0
+CloseSettings.Position = UDim2.new(0.072829172, 0, 0.863501132, 0)
+CloseSettings.Size = UDim2.new(0, 203, 0, 32)
+CloseSettings.Font = Enum.Font.SciFi
+CloseSettings.Text = "Close"
+CloseSettings.TextColor3 = Color3.fromRGB(255, 255, 255)
+CloseSettings.TextSize = 20.000
+CloseSettings.TextWrapped = true
+
+UICorner_5.Parent = CloseSettings
+
+Logo11.Name = "Logo11"
+Logo11.Parent = Options
+Logo11.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Logo11.BackgroundTransparency = 1.000
+Logo11.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Logo11.BorderSizePixel = 0
+Logo11.Position = UDim2.new(-0.0006002218, 0, 0, 0)
+Logo11.Size = UDim2.new(0, 215, 0, 39)
+Logo11.Font = Enum.Font.SciFi
+Logo11.Text = "X"
+Logo11.TextColor3 = Color3.fromRGB(0, 255, 85)
+Logo11.TextScaled = true
+Logo11.TextSize = 14.000
+Logo11.TextWrapped = true
+
+Logo9.Name = "Logo9"
+Logo9.Parent = Options
+Logo9.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Logo9.BackgroundTransparency = 1.000
+Logo9.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Logo9.BorderSizePixel = 0
+Logo9.Position = UDim2.new(-0.24719879, 0, 0, 0)
+Logo9.Size = UDim2.new(0, 215, 0, 39)
+Logo9.Font = Enum.Font.SciFi
+Logo9.Text = "Script"
+Logo9.TextColor3 = Color3.fromRGB(255, 255, 255)
+Logo9.TextScaled = true
+Logo9.TextSize = 14.000
+Logo9.TextWrapped = true
+
+Logo10.Name = "Logo10"
+Logo10.Parent = Options
+Logo10.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Logo10.BackgroundTransparency = 1.000
+Logo10.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Logo10.BorderSizePixel = 0
+Logo10.Position = UDim2.new(0.141356528, 0, 0, 0)
+Logo10.Size = UDim2.new(0, 215, 0, 39)
+Logo10.Font = Enum.Font.SciFi
+Logo10.Text = "V3"
+Logo10.TextColor3 = Color3.fromRGB(255, 0, 4)
+Logo10.TextScaled = true
+Logo10.TextSize = 14.000
+Logo10.TextWrapped = true
+
+Settings.MouseButton1Click:Connect(function()
+	main.Visible = false
+	Options.Visible = true
+end)
+
+Rejoin.MouseButton1Click:Connect(function()
+	local ts = game:GetService("TeleportService")
+	local p = game:GetService("Players").LocalPlayer
+
+	ts:TeleportToPlaceInstance(game.PlaceId, game.JobId, p)
+end)
+
+CloseSettings.MouseButton1Click:Connect(function()
+	main.Visible = true
+	Options.Visible = false
+end)
+
+Discord.MouseButton1Click:Connect(function()
+	setclipboard("https://discord.gg/pqxSpMsC")
+	toclipboard("https://discord.gg/pqxSpMsC")
+end)
